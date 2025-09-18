@@ -2,26 +2,18 @@
     <h2 class="heading">Filtra noticia por país y categoria</h2>
     <div class="row mt-3">
         <div class="col-lg-8 offset-lg-2">
-            <form>
+            <form (ngSubmit)="buscarNoticia()">
                 <div>
-                    <select name="categoria" class="form-control form-control-lg" >
-                        <option>General</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select name="categoria" [(ngModel)]="categoriaSeleccionada" class="form-control form-control-lg" >
+                        <option *ngFor="let categoria of categorias" [value]="categoria.value">{{categoria.nombre}}</option>
                     </select>
                 </div>
                 <div>
-                    <select name="pais" class="form-control form-control-lg mt-3" >
-                        <option>Argentina</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select name="pais" [(ngModel)]="paisSeleccionado" class="form-control form-control-lg mt-3" >
+                        <option *ngFor="let pais of paises" [value]="pais.value">{{pais.nombre}}</option>
                     </select>
                 </div>
-                <button class="btn btn-lg btn-block btn-primary mt-3">Buscar</button>
+                <button type="submit" class="btn btn-lg btn-block btn-primary mt-3">Buscar</button>
             </form>
         </div>
     </div>
