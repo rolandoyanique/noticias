@@ -1,4 +1,6 @@
 <app-navbar [titulo]="'Buscador de noticias'"></app-navbar>
 <div class="container">
-  <app-formulario></app-formulario>
+  <app-formulario (parametroSeleccionado)="buscarNoticias($event)"></app-formulario>
+  <div class="spinner mt-4" *ngIf="spinkit"></div>
+  <app-listado-noticias [noticias]="listNoticias"></app-listado-noticias>
 </div>

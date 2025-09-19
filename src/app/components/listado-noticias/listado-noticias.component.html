@@ -1,1 +1,23 @@
-<p>listado-noticias works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let fuente of noticias">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ fuente.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ fuente.category | uppercase }} • {{ fuente.country | uppercase }}
+          </h6>
+          <p class="card-text flex-grow-1">
+            {{ fuente.description }}
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Idioma: {{ fuente.language | uppercase }}</small>
+          </p>
+          <a [href]="fuente.url" target="_blank" class="btn btn-primary mt-auto">
+            Visitar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
